@@ -16,10 +16,16 @@
 
 # Dependencies
 
-**TODO: adapt this section**
+This tool depends on java 17 or greater, and the java executable must be in the PATH.
+
+Java can be installed using asdf
+```
+asdf plugin-add java
+asdf install java temurin-17.0.5+8
+asdf global java temurin-17.0.5+8 
+```
 
 - `bash`, `curl`, `tar`: generic POSIX utilities.
-- `SOME_ENV_VAR`: set this environment variable in your shell config to load the correct version of tool x.
 
 # Install
 
