@@ -50,8 +50,11 @@ install_version() {
     mkdir -p "$install_path"
     cp -r "$ASDF_DOWNLOAD_PATH"/* "$install_path"
 
-    printf "#\!/usr/bin/env bash\njava -jar "$install_path"/google-java-format.jar \$@\n" > $install_path/$TOOL_NAME
-    chmod +x $install_path/$TOOL_NAME
+    cat <<EOF >"$install_path/$TOOL_NAME"
+#\!/usr/bin/env bash
+java -jar "$install_path/google-java-format.jar" \$@
+EOF
+    chmod +x "$install_path/$TOOL_NAME"
 
     local tool_cmd
     tool_cmd="$(echo "$TOOL_TEST" | cut -d' ' -f1)"
